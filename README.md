@@ -61,9 +61,7 @@ Perfeito se tudo estiver correto o bot inicalizará sozinho.
 # Bot de controle Policial
 
 
-## Etiquetas
-
-Adicione etiquetas de algum lugar, como: [shields.io](https://shields.io/)
+## Liscensas
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
 [![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
