@@ -1,0 +1,27 @@
+{
+  "name": "botpm",
+  "version": "1.0.0",
+  "description": "apenas mais um bot de discord",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.2.0",
+    "discord-html-transcripts": "^3.1.2",
+    "discord.js": "^14.14.1",
+    "fs": "^0.0.1-security",
+    "moment": "^2.29.4",
+    "moment-duration-format": "^2.3.2",
+    "mongodb": "^4.12.1",
+    "mongoose": "^6.7.5",
+    "npm": "^9.3.1",
+    "path": "^0.12.7",
+    "ps": "^1.0.0",
+    "sourcebin": "^4.3.6",
+    "sqlite3": "^5.1.7",
+    "util-stunks": "^1.1.5"
+  }
+}
