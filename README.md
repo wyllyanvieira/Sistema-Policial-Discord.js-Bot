@@ -70,5 +70,3 @@ Adicione etiquetas de algum lugar, como: [shields.io](https://shields.io/)
 [![AGPL License](https://img.shields.io/badge/license-AGPL-blue.svg)](http://www.gnu.org/licenses/agpl-3.0)
 
 
-# Bot de controle Policial
-
