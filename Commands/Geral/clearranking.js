@@ -10,19 +10,23 @@ module.exports = {
   type: Discord.ApplicationCommandType.ChatInput,
 
   run: async (client, interaction) => {
+    let collector; // Mova a declaração da variável collector para fora do bloco else
+
     if (!interaction.member.permissions.has("MANAGE_MESSAGES")) {
       interaction.reply({
-        content: `:x: | Você não possui permissão para utilizar este comando.`,
+        content: `<:icons_Wrong75:1198037616956821515> | Você não possui permissão para utilizar este comando.`,
         ephemeral: true,
       });
     } else {
       const confirmButton = new Discord.ButtonBuilder()
         .setCustomId("confirm_clear")
+        .addEmoji("1198037618361905345")
         .setLabel("Confirmar Limpeza")
         .setStyle(Discord.ButtonStyle.Danger);
 
       const cancelButton = new Discord.ButtonBuilder()
         .setCustomId("cancel_clear")
+        .addEmoji("1198037616956821515")
         .setLabel("Cancelar")
         .setStyle(Discord.ButtonStyle.Primary);
 
@@ -33,14 +37,14 @@ module.exports = {
 
       interaction.reply({
         content:
-          "⚠️ Você tem certeza de que deseja limpar completamente o banco de dados de pontos?",
+          "<:management:1197986783808471171> Você tem certeza de que deseja limpar completamente o banco de dados de pontos?",
         components: [row],
         ephemeral: true,
       });
 
       const filter = (i) =>
         i.customId === "confirm_clear" || i.customId === "cancel_clear";
-      const collector = interaction.channel.createMessageComponentCollector({
+      collector = interaction.channel.createMessageComponentCollector({
         filter,
         time: 15000,
       });
@@ -52,19 +56,19 @@ module.exports = {
             if (err) {
               console.error(err);
               return interaction.editReply({
-                content: "❌ Ocorreu um erro ao limpar o banco de dados.",
+                content: "<:icons_Wrong75:1198037616956821515> Ocorreu um erro ao limpar o banco de dados.",
                 components: [],
               });
             }
 
             interaction.editReply({
-              content: "✅ Banco de dados limpo com sucesso!",
+              content: "<:iconscorrect:1198037618361905345> Banco de dados limpo com sucesso!",
               components: [],
             });
           });
         } else if (i.customId === "cancel_clear") {
           interaction.editReply({
-            content: "❌ Limpeza do banco de dados cancelada.",
+            content: "<:icons_Wrong75:1198037616956821515> Limpeza do banco de dados cancelada.",
             components: [],
           });
         }
@@ -72,10 +76,11 @@ module.exports = {
         collector.stop();
       });
     }
+
     collector.on("end", (collected) => {
       if (collected.size === 0) {
         interaction.followUp({
-          content: "❌ Tempo expirado. Ação cancelada.",
+          content: "<:icons_Wrong75:1198037616956821515> Tempo expirado. Ação cancelada.",
           ephemeral: true,
         });
       }

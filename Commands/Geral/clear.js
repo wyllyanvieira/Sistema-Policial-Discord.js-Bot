@@ -18,7 +18,7 @@ module.exports = {
         let numero = interaction.options.getNumber('quantidade')
 
         if (!interaction.member.permissions.has("MANAGE_MESSAGES")) {
-            interaction.reply({ content: `:x: | Você não possui permissão para utilizar este comando.`, ephemeral: true })
+            interaction.reply({ content: `<:icons_Wrong75:1198037616956821515> | Você não possui permissão para utilizar este comando.`, ephemeral: true })
         } else
 
         if (parseInt(numero) > 99 || parseInt(numero) <= 0) {

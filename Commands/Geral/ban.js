@@ -30,7 +30,7 @@ module.exports = {
 
 
     if (!interaction.member.permissions.has(Discord.PermissionFlagsBits.BanMembers)) {
-        interaction.reply({ content: `:x: | Você não possui permissão para utilizar este comando.`, ephemeral: true })
+        interaction.reply({ content: `<:icons_Wrong75:1198037616956821515> | Você não possui permissão para utilizar este comando.`, ephemeral: true })
     } else {
         let userr = interaction.options.getUser("user");
         let user = interaction.guild.members.cache.get(userr.id)
@@ -39,7 +39,7 @@ module.exports = {
         let evidence = interaction.options.getString("provas") || "Nenhuma Prova Anexada"
     
         user.ban({ reason: [motivo] }).then( () => {
-            interaction.reply({content: '✅ | *O usuario foi exonerado com sucesso*', ephemeral: true})
+            interaction.reply({content: '<:iconscorrect:1198037618361905345> | *O usuario foi exonerado com sucesso*', ephemeral: true})
             let canallogexoneras = interaction.guild.channels.cache.get(config.ADVERTENCIAS.exonerascanator);
             let embed_anuncio_exoneras = new Discord.EmbedBuilder()
             .setColor(config.embedcolor)
@@ -52,10 +52,8 @@ module.exports = {
             );
             canallogexoneras.send({ embeds: [embed_anuncio_exoneras] })
         }).catch(e => {
-            interaction.reply({content: ':x: | Não consigo banir esse usúario, pois não tenho as devidas permissoes.', ephemeral: true})
+            interaction.reply({content: '<:icons_Wrong75:1198037616956821515> | Não consigo banir esse usúario, pois não tenho as devidas permissoes.', ephemeral: true})
         })
 
 
   }}}
-
-  // KKKPL#9696

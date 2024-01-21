@@ -38,7 +38,7 @@ module.exports = {
         return;
       }
     if (!interaction.member.permissions.has("MANAGE_MESSAGES")) {
-        interaction.reply({ content: `:x: | Você não possui permissão para utilizar este comando.`, ephemeral: true })
+        interaction.reply({ content: `<:icons_Wrong75:1198037616956821515> | Você não possui permissão para utilizar este comando.`, ephemeral: true })
     } else {
       const ranking = calcularRanking(rows);
       var d = new Date();
