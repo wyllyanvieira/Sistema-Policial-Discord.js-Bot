@@ -1,10 +1,13 @@
 {
     "token": "NjM5NTUzMDUwNDY1MjcxODA4.G7hmNe.r6cwSkl2aCtiJauiqliOZUJ_N-mKFxnAbGovXE",
     "embedcolor" : "2f3136",
+    "relatoriolog" : "1197012326184931438",
+    "batepontolog" : "1196585155800870972",
 
     "TICKET":{
         "cargo": "1170023080232501305",
-        "ticketlogs": "1175631107945926666"
+        "ticketlogs": "1197012326184931438",
+        "categoria": "1196585156266434606"
     },
 
 
@@ -15,6 +18,7 @@
         "cargoadv_1":"1170023079993425996",
         "cargoadv_2":"1170023079993425995"
     }
+
 }
 
 

@@ -3,6 +3,7 @@ const sqlite3 = require('sqlite3');
 const config = require("./config.json");
 const fs = require("fs");
 
+
 const client = new Discord.Client({
   intents: [
     Discord.GatewayIntentBits.Guilds
@@ -13,9 +14,14 @@ const client = new Discord.Client({
 
 
 client.on("ready", () => {
-  console.log(`📡 Estou online como ${client.user.username}, tudo menos RECEBA pq o thomas não gosta!`)
+  console.log(`📡 Estou online ${client.user.username}`)
+  client.user.setActivity({
+    name: 'customstatus',
+    type: Discord.ActivityType.Custom,
+    state: "🚧 Sendo atualizado a todo instante por @wyllyan.br"
 })
 
+});
 
 client.login(config.token)
 
@@ -62,12 +68,12 @@ client.on("interactionCreate", (interaction) => {
         // Nova opção
 
         let nome = `⭐・${interaction.user.username}`;
-        let categoria = "1173693036975362209" // Coloque o ID da categoria
+        let categoria = config.TICKET.categoria
 
         if (!interaction.guild.channels.cache.get(categoria)) categoria = null;
 
         if (interaction.guild.channels.cache.find(c => c.name === nome)) {
-          interaction.reply({ content: `❌ Você já possui um ticket aberto em ${interaction.guild.channels.cache.find(c => c.name === nome)}!`, ephemeral: true })
+          interaction.reply({ content: `<:icons_Wrong75:1198037616956821515> | Você já possui um ticket aberto em ${interaction.guild.channels.cache.find(c => c.name === nome)}!`, ephemeral: true })
         } else {
           interaction.guild.channels.create({
             name: nome,
@@ -92,7 +98,7 @@ client.on("interactionCreate", (interaction) => {
               }
             ]
           }).then((ch) => {
-            interaction.reply({ content: `✅ Olá ${interaction.user}, seu ticket foi aberto em ${ch}!`, ephemeral: true })
+            interaction.reply({ content: `<:iconscorrect:1198037618361905345> | Olá ${interaction.user}, seu ticket foi aberto em ${ch}!`, ephemeral: true })
             let embed = new Discord.EmbedBuilder()
               .setColor(config.embedcolor)
               .setAuthor({ name: `${interaction.user.username} | Ticket` })
@@ -102,7 +108,7 @@ client.on("interactionCreate", (interaction) => {
               new Discord.ButtonBuilder()
                 .setCustomId("fechar_ticket")
                 .setLabel("Fechar Ticket")
-                .setEmoji("🔒")
+                .setEmoji("1197986783808471171")
                 .setStyle(Discord.ButtonStyle.Danger)
             );
 
@@ -119,12 +125,12 @@ client.on("interactionCreate", (interaction) => {
         // Nova opção
 
         let nome = `🚨・${interaction.user.username}}`;
-        let categoria = "1173692895644110848" // Coloque o ID da categoria
+        let categoria = config.TICKET.categoria
 
         if (!interaction.guild.channels.cache.get(categoria)) categoria = null;
 
         if (interaction.guild.channels.cache.find(c => c.name === nome)) {
-          interaction.reply({ content: `❌ Você já possui um ticket aberto em ${interaction.guild.channels.cache.find(c => c.name === nome)}!`, ephemeral: true })
+          interaction.reply({ content: `<:icons_Wrong75:1198037616956821515> | Você já possui um ticket aberto em ${interaction.guild.channels.cache.find(c => c.name === nome)}!`, ephemeral: true })
         } else {
           interaction.guild.channels.create({
             name: nome,
@@ -149,7 +155,7 @@ client.on("interactionCreate", (interaction) => {
               }
             ]
           }).then((ch) => {
-            interaction.reply({ content: `✅ Olá ${interaction.user}, seu ticket foi aberto em ${ch}!`, ephemeral: true })
+            interaction.reply({ content: `<:iconscorrect:1198037618361905345> | Olá ${interaction.user}, seu ticket foi aberto em ${ch}!`, ephemeral: true })
             let embed = new Discord.EmbedBuilder()
               .setColor(config.embedcolor)
               .setAuthor({ name: `${interaction.user.username} | Ticket` })
@@ -159,7 +165,7 @@ client.on("interactionCreate", (interaction) => {
               new Discord.ButtonBuilder()
                 .setCustomId("fechar_ticket")
                 .setLabel("Fechar Ticket")
-                .setEmoji("🔒")
+                .setEmoji("1197986783808471171")
                 .setStyle(Discord.ButtonStyle.Danger)
             );
 
@@ -176,12 +182,12 @@ client.on("interactionCreate", (interaction) => {
         // Nova opção
 
         let nome = `📨・${interaction.user.username}`;
-        let categoria = "1173692895644110848" // Coloque o ID da categoria
+        let categoria = config.TICKET.categoria
 
         if (!interaction.guild.channels.cache.get(categoria)) categoria = null;
 
         if (interaction.guild.channels.cache.find(c => c.name === nome)) {
-          interaction.reply({ content: `❌ Você já possui um ticket aberto em ${interaction.guild.channels.cache.find(c => c.name === nome)}!`, ephemeral: true })
+          interaction.reply({ content: `<:icons_Wrong75:1198037616956821515> | Você já possui um ticket aberto em ${interaction.guild.channels.cache.find(c => c.name === nome)}!`, ephemeral: true })
         } else {
           interaction.guild.channels.create({
             name: nome,
@@ -206,7 +212,7 @@ client.on("interactionCreate", (interaction) => {
               }
             ]
           }).then((ch) => {
-            interaction.reply({ content: `✅ Olá ${interaction.user}, seu ticket foi aberto em ${ch}!`, ephemeral: true })
+            interaction.reply({ content: `<:iconscorrect:1198037618361905345> | Olá ${interaction.user}, seu ticket foi aberto em ${ch}!`, ephemeral: true })
 
             let embed = new Discord.EmbedBuilder()
               .setColor(config.embedcolor)
@@ -218,7 +224,7 @@ client.on("interactionCreate", (interaction) => {
                 .setCustomId("fechar_ticket")
                 .setLabel("Fechar Ticket")
                 .setLabel("Fechar Ticket")
-                .setEmoji("🔒")
+                .setEmoji("1197986783808471171")
                 .setStyle(Discord.ButtonStyle.Danger)
 
             );
@@ -265,7 +271,7 @@ client.on("interactionCreate", async (interaction) => {
           )
 
           channellogs.send({ embeds: [embedLogs], files: [attachment] })
-          interaction.channel.send({ content: `⏳ | Ação Solicitada! este ticket será excluído em 5 segundos...` })
+          interaction.channel.send({ content: `<:refresh:1197986033594269778> | Ação Solicitada! este ticket será excluído em 5 segundos...` })
 
           setTimeout(() => {
             try {
@@ -349,7 +355,7 @@ client.on('interactionCreate', async (interaction) => {
 client.on('interactionCreate', async (interaction) => {
   if (!interaction.isModalSubmit()) return;
   if (interaction.customId === 'modal_sugest') {
-    let canalModel = "1196457721982103703"; // Coloque o ID do canal
+    let canalModel = config.relatoriolog
     let channelModal = client.channels.cache.get(canalModel)  // Enviar a avaliação pro canal
 
 
@@ -373,27 +379,27 @@ client.on('interactionCreate', async (interaction) => {
           .setThumbnail(interaction.user.displayAvatarURL({ dinamyc: true }))
           .setFields(
             {
-              name: '🆔 Passaporte e nome do Cidadão',
+              name: '<:id:1197986083590389861> Passaporte e nome do Cidadão',
               value: `\`${ftextinput_idname}\``,
               inline: true
             },
             {
-              name: '<:handcuffs:1067036336709713970> Pena de Prisão',
+              name: '<:Handcuffs:1198037614087909416> Pena de Prisão',
               value: `\`${ftextinput_pena} Meses\``,
               inline: true
             },
             {
-              name: '<:money:1067066860530581624> Artigos Aplicada',
+              name: '<:iconcreditcard:1197986075117887649> Artigos Aplicada',
               value: `\`Arts. ${ftextinput_multa}\``,
               inline: true
             },
             {
-              name: '👮‍♂️ Policiais que participaram da QRU (DISTINTIVO)',
+              name: '<:members:1197986377464303738> Policiais que participaram da QRU (DISTINTIVO)',
               value: `\`${ftextinput_oficiais}\``,
               inline: true
             },
             {
-              name: '📃 Descrição da QRU',
+              name: '<:rules:1197986061750632598> Descrição da QRU',
               value: `\`\`\`${ftextinput_desc}\`\`\``,
               inline: false
             },
@@ -407,7 +413,7 @@ client.on('interactionCreate', async (interaction) => {
 })
 
 const arquivoBanco = 'pontos.db';
-const canalLogId = '1171428420194926653'; // Substitua com o ID do canal de log
+const canalLogId = config.batepontolog
 
 const db = new sqlite3.Database(arquivoBanco);
 
@@ -452,18 +458,18 @@ client.on('interactionCreate', async interaction => {
         if (err) console.error(err);
       });
 
-      await interaction.reply({ content: '✅ | Ponto aberto!', ephemeral: true });
+      await interaction.reply({ content: '<:iconscorrect:1198037618361905345> | Ponto aberto!', ephemeral: true });
       const canalLog = client.channels.cache.get(canalLogId);
 
       let rowpontoc = new Discord.ActionRowBuilder().addComponents(
         new Discord.ButtonBuilder()
           .setCustomId("fechar_ponto")
           .setLabel("Fechar Ponto")
-          .setEmoji("❌")
+          .setEmoji("1198037616956821515")
           .setStyle(Discord.ButtonStyle.Danger),
       )
       if (canalLog) {
-        canalLog.send({ content: `> ✅ | Ponto do usuário ${interaction.user} aberto.`, components: [rowpontoc] });
+        canalLog.send({ content: `> <:iconscorrect:1198037618361905345> | Ponto do usuário ${interaction.user} aberto.`, components: [rowpontoc] });
       }
     } else if (interaction.customId === 'fechar_ponto' ) {
       if (row.aberto) {
@@ -485,7 +491,7 @@ client.on('interactionCreate', async interaction => {
           canalLog.send(`> 🙋 | Ponto do usuário ${interaction.user} fechado com ${formatarTempo(intervalo)}.`);
         }
       } else {
-        await interaction.reply({ content: '> :x: | Você não tem um ponto aberto.', ephemeral: true });
+        await interaction.reply({ content: '> <:icons_Wrong75:1198037616956821515> | Você não tem um ponto aberto.', ephemeral: true });
       }
     }
   });
