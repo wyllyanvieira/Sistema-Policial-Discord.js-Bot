@@ -29,12 +29,12 @@ module.exports = {
   run: async (client, interaction) => {
 
     if (!interaction.member.permissions.has(Discord.PermissionFlagsBits.ManageGuild)) {
-        interaction.reply({ content: `❌ | Você não possui permissão para utilizar este comando.`, ephemeral: true })
+        interaction.reply({ content: `<:icons_Wrong75:1198037616956821515> | Você não possui permissão para utilizar este comando.`, ephemeral: true })
     } else {
         let titulo = interaction.options.getString("título")
         let desc = interaction.options.getString("descrição")
         let chat = interaction.options.getChannel("chat")
-        if (Discord.ChannelType.GuildText !== chat.type) return interaction.reply(`❌ | Este canal não é um canal de texto para enviar uma mensagem.`)
+        if (Discord.ChannelType.GuildText !== chat.type) return interaction.reply(`<:icons_Wrong75:1198037616956821515> | Este canal não é um canal de texto para enviar uma mensagem.`)
 
         let embed = new Discord.EmbedBuilder()
         .setTitle(titulo)
@@ -42,9 +42,9 @@ module.exports = {
         .setColor(config.embedcolor);
 
         chat.send({  content: `${interaction.user}`, embeds: [embed] }).then( () => { 
-            interaction.reply({ content: `✅ | Seu anúncio foi enviado em ${chat} com sucesso.`, ephemeral: true})
+            interaction.reply({ content: `<:iconscorrect:1198037618361905345> | Seu anúncio foi enviado em ${chat} com sucesso.`, ephemeral: true})
         }).catch( (e) => {
-            interaction.reply({ content: `❌ | Algo deu errado verifique com desenvolvedor do BOT.`, ephemeral: true})
+            interaction.reply({ content: `<:icons_Wrong75:1198037616956821515> | Algo deu errado verifique com desenvolvedor do BOT.`, ephemeral: true})
         })
     }
 
