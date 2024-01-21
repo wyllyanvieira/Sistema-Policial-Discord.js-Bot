@@ -27,7 +27,7 @@ module.exports = {
     ],
     run: async (client, interaction) => {
         if (!interaction.member.permissions.has(Discord.PermissionFlagsBits.ManageGuild)) {
-            interaction.reply({ content: `❌ | Você não possui permissão para utilizar este comando.`, ephemeral: true })
+            interaction.reply({ content: `<:icons_Wrong75:1198037616956821515> | Você não possui permissão para utilizar este comando.`, ephemeral: true })
         } else {
             let usuario2 = interaction.options.getUser("usuario");
             let target = interaction.guild.members.cache.get(usuario2.id)
@@ -109,7 +109,7 @@ module.exports = {
                             canallogadv.send({ embeds: [embed_advv] })
                             target.roles.add(config.ADVERTENCIAS.cargoadv_verbal);
                         } else {
-                            interaction.channel.send({ content: `❌ | O Oficial ja possue essa advertencia!.`, ephemeral: true })
+                            interaction.channel.send({ content: `<:icons_Wrong75:1198037616956821515> | O Oficial ja possue essa advertencia!.`, ephemeral: true })
                         }
                     } else if (valor === "advertencia1") {
                         if (!target.roles.cache.has(config.ADVERTENCIAS.cargoadv_1)) {
@@ -117,7 +117,7 @@ module.exports = {
                             canallogadv.send({ embeds: [embed_adv1] })
                             target.roles.add(config.ADVERTENCIAS.cargoadv_1);
                         } else {
-                            interaction.channel.send({ content: `❌ | O Oficial ja possue essa advertencia!.`, ephemeral: true })
+                            interaction.channel.send({ content: `<:icons_Wrong75:1198037616956821515> | O Oficial ja possue essa advertencia!.`, ephemeral: true })
                         }
                     } else if (valor === "advertencia2") {
                         if (!target.roles.cache.has(config.ADVERTENCIAS.cargoadv_2)) {
@@ -125,7 +125,7 @@ module.exports = {
                             canallogadv.send({ embeds: [embed_adv2] })
                             target.roles.add(config.ADVERTENCIAS.cargoadv_2);
                         } else {
-                            interaction.channel.send({ content: `❌ | O Oficial ja possue essa advertencia!.`, ephemeral: true })
+                            interaction.channel.send({ content: `<:icons_Wrong75:1198037616956821515> | O Oficial ja possue essa advertencia!.`, ephemeral: true })
                         }
                     }
                 })
