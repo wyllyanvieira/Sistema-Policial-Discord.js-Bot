@@ -1,7 +1,6 @@
 const Discord = require("discord.js");
 const sqlite3 = require("sqlite3");
 
-const db = new sqlite3.Database("pontos.db"); // Use o mesmo nome do banco de dados que você definiu anteriormente
 
 module.exports = {
   name: "clearranking",
@@ -10,6 +9,7 @@ module.exports = {
   type: Discord.ApplicationCommandType.ChatInput,
 
   run: async (client, interaction) => {
+    const db = new sqlite3.Database("pontos.db"); // Use o mesmo nome do banco de dados que você definiu anteriormente
     let collector; // Mova a declaração da variável collector para fora do bloco else
 
     if (!interaction.member.permissions.has("MANAGE_MESSAGES")) {
@@ -20,13 +20,11 @@ module.exports = {
     } else {
       const confirmButton = new Discord.ButtonBuilder()
         .setCustomId("confirm_clear")
-        .addEmoji("1198037618361905345")
         .setLabel("Confirmar Limpeza")
         .setStyle(Discord.ButtonStyle.Danger);
 
       const cancelButton = new Discord.ButtonBuilder()
         .setCustomId("cancel_clear")
-        .addEmoji("1198037616956821515")
         .setLabel("Cancelar")
         .setStyle(Discord.ButtonStyle.Primary);
 
