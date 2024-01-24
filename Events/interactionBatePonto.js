@@ -45,6 +45,10 @@ if (!interaction.isButton()) return;
       db.run('UPDATE pontos SET aberto = ? WHERE usuario_id = ?', [Date.now(), idUsuario], (err) => {
         if (err) console.error(err);
       });
+      if (row.aberto) {
+        interaction.reply({ content: '> <:icons_Wrong75:1198037616956821515> | Você ja tem um ponto aberto.', ephemeral: true });
+        return;
+      }
 
       await interaction.reply({ content: '<:iconscorrect:1198037618361905345> | Ponto aberto!', ephemeral: true });
       const canalLog = client.channels.cache.get(canalLogId);

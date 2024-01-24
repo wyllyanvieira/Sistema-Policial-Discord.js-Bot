@@ -4,7 +4,7 @@ const config = require("../../config.json")
 
 module.exports = {
     name: 'user',
-    description: 'subcommand de user',
+    description: '[📚 Informação] Veja informações sobre um usuário',
     options: [
             {
                 name: 'info',
