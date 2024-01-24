@@ -24,6 +24,37 @@ module.exports = async (client, interaction) => {
     
       return `${horas}h ${minutos}m ${segundosRestantes.toFixed(0)}s`;
     }
+
+    function fecharPonto(idUsuario, interaction, client, canalLogId, db) {
+      db.get('SELECT * FROM pontos WHERE usuario_id = ?', [idUsuario], async (err, row) => {
+        if (err) {
+          console.error(err);
+          return;
+        }
+    
+        if (row.aberto) {
+          const fechado = new Date();
+          const aberto = new Date(row.aberto);
+          const intervalo = (fechado - aberto) / 1000;
+    
+          // Atualiza o banco de dados com o intervalo
+          const novosIntervalos = JSON.parse(row.intervalos);
+          novosIntervalos.push(intervalo);
+    
+          db.run('UPDATE pontos SET aberto = NULL, intervalos = ? WHERE usuario_id = ?', [JSON.stringify(novosIntervalos), idUsuario], (err) => {
+            if (err) console.error(err);
+          });
+    
+          await interaction.reply({ content: `> 🙋 | Ponto fechado! Intervalo: ${formatarTempo(intervalo)}`, ephemeral: true });
+          const canalLog = client.channels.cache.get(canalLogId);
+          if (canalLog) {
+            canalLog.send(`> 🙋 | Ponto do usuário ${interaction.user} fechado com ${formatarTempo(intervalo)}.`);
+          }
+        } else {
+          await interaction.reply({ content: '> <:icons_Wrong75:1198037616956821515> | Você não tem um ponto aberto.', ephemeral: true });
+        }
+      });
+    }
 if (!interaction.isButton()) return;
 
   const idUsuario = interaction.user.id;
@@ -53,39 +84,11 @@ if (!interaction.isButton()) return;
 
       await interaction.reply({ content: '<:iconscorrect:1198037618361905345> | Ponto aberto!', ephemeral: true });
       const canalLog = client.channels.cache.get(canalLogId);
-
-      let rowpontoc = new Discord.ActionRowBuilder().addComponents(
-        new Discord.ButtonBuilder()
-          .setCustomId("fechar_ponto")
-          .setLabel("Fechar Ponto")
-          .setEmoji("1198037616956821515")
-          .setStyle(Discord.ButtonStyle.Danger),
-      )
       if (canalLog) {
-        canalLog.send({ content: `> <:iconscorrect:1198037618361905345> | Ponto do usuário ${interaction.user} aberto.`, components: [rowpontoc] });
+        canalLog.send({ content: `> <:iconscorrect:1198037618361905345> | Ponto do usuário ${interaction.user} aberto.`, });
       }
-    } else if (interaction.customId === 'fechar_ponto' ) {
-      if (row.aberto) {
-        const fechado = new Date();
-        const aberto = new Date(row.aberto);
-        const intervalo = (fechado - aberto) / 1000;
-
-        // Atualiza o banco de dados com o intervalo
-        const novosIntervalos = JSON.parse(row.intervalos);
-        novosIntervalos.push(intervalo);
-
-        db.run('UPDATE pontos SET aberto = NULL, intervalos = ? WHERE usuario_id = ?', [JSON.stringify(novosIntervalos), idUsuario], (err) => {
-          if (err) console.error(err);
-        });
-
-        await interaction.reply({ content: `> 🙋 | Ponto fechado! Intervalo: ${formatarTempo(intervalo)}`, ephemeral: true });
-        const canalLog = client.channels.cache.get(canalLogId);
-        if (canalLog) {
-          canalLog.send(`> 🙋 | Ponto do usuário ${interaction.user} fechado com ${formatarTempo(intervalo)}.`);
-        }
-      } else {
-        await interaction.reply({ content: '> <:icons_Wrong75:1198037616956821515> | Você não tem um ponto aberto.', ephemeral: true });
-      }
-    }
+    } else if (interaction.customId === 'fechar_ponto') {
+      fecharPonto(idUsuario, interaction, client, canalLogId, db);
+    }  
   });
 }

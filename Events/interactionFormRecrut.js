@@ -6,6 +6,7 @@ const arquivoBanco = 'recrutamento.db';
 const db = new sqlite3.Database(arquivoBanco);
 
 module.exports = async (client, interaction) => {
+
     const database = await obterDadosBanco(interaction.message?.id);
     if (!database) return;
 
