@@ -4,11 +4,11 @@ const { QuickDB } = require("quick.db");
 const db = new QuickDB({ table: "staff" });
 
 module.exports = async (client, interaction) => {
-    const database = await db.get(interaction.message.id);
+    const database = await db.get(interaction.message?.id);
     if (!database) return;
-
+    
     const member = interaction.guild.members.cache.get(interaction.user.id);
-    if (!member) return;
+    if (!member) return;    
 
 
     if (interaction.isButton() && interaction.customId === "aceitar_button") {
@@ -72,6 +72,17 @@ module.exports = async (client, interaction) => {
     }
 
     if (interaction.isButton() && interaction.customId === "negar_button") {
+        if (!interaction.member.roles.cache.get(config.RECRUTAMENTO.cargo_verificador))
+        return interaction.reply({
+            embeds: [
+                new Discord.EmbedBuilder()
+                    .setColor("Default")
+                    .setDescription(
+                        `<:icons_Wrong75:1198037616956821515> |  Você não tem permissão para Aprovar este Usuario`
+                    ),
+            ],
+            ephemeral: true,
+        });
         const membro = await interaction.guild.members.cache.get(database.usuario);
         if (!membro) return;
 
