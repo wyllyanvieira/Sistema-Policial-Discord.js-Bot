@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^1.2.0",
+    "better-sqlite3": "^9.3.0",
     "discord-html-transcripts": "^3.1.2",
     "discord.js": "^14.14.1",
     "fs": "^0.0.1-security",
@@ -20,6 +21,7 @@
     "npm": "^9.3.1",
     "path": "^0.12.7",
     "ps": "^1.0.0",
+    "quick.db": "^9.1.7",
     "sourcebin": "^4.3.6",
     "sqlite3": "^5.1.7",
     "util-stunks": "^1.1.5"

@@ -5,6 +5,12 @@
     "batepontolog" : "1196585155800870972",
     "siglaguarnição" : "[PMCB]",
 
+    "RECRUTAMENTO":{
+        "cargo_verificador":"1196585155708584023",
+        "cargo_aprovado":"1199717906313924648",
+        "canal_formulario":"1199717526494527498"
+    },
+
     "TICKET":{
         "cargo": "1196585155800870964",
         "ticketlogs": "1197012326184931438",

@@ -2,6 +2,8 @@ const Discord = require("discord.js");
 const sqlite3 = require('sqlite3');
 const config = require("./config.json");
 const fs = require("fs");
+const { QuickDB } = require('quick.db');
+global.db = new QuickDB();
 
 
 const client = new Discord.Client({
@@ -55,6 +57,8 @@ const interactionFechatTicket = require("./Events/interactionFechatTicket");
 const interactionTicketCreate = require("./Events/interactionTicketCreate");
 const interactionPostModalPrender = require("./Events/interactionPostModalPrender");
 const interactionBatePonto = require("./Events/interactionBatePonto");
+const interactionFormRecrut = require("./Events/interactionFormRecrut");
+const interactionFormRecrutModal = require("./Events/interactionFormRecrutModal");
 
 
 client.on("interactionCreate", async (interaction) => {
@@ -75,4 +79,12 @@ client.on('interactionCreate', async (interaction) => {
 
 client.on('interactionCreate', async interaction => {
   await interactionBatePonto(client, interaction)
+});
+
+client.on('interactionCreate', async interaction => {
+  await interactionFormRecrut(client, interaction)
+});
+
+client.on('interactionCreate', async interaction => {
+  await interactionFormRecrutModal(client, interaction)
 });

@@ -24,6 +24,12 @@ module.exports = {
       type: Discord.ApplicationCommandOptionType.Subcommand,
 
     },
+    {
+      name: 'recrutamento',
+      description: '[📚 Informação] crie a mensagem a respeito do formulario de recrutamento',
+      type: Discord.ApplicationCommandOptionType.Subcommand,
+
+    },
   ],
   run: async (client, interaction) => {
     switch (interaction.options.getSubcommand()) {
@@ -100,6 +106,55 @@ module.exports = {
                 .setLabel('Fechar Ponto')
                 .setEmoji('1197986380781985903')
                 .setStyle(4)
+            );
+          interaction.reply({ content: `<:iconscorrect:1198037618361905345> | Mensagem enviada com sucesso.`, ephemeral: true })
+          interaction.channel.send({ embeds: [embed_2], components: [buttonponto] })
+
+
+        }
+        break;
+      }
+      case 'recrutamento': {
+        if (!interaction.member.permissions.has(Discord.PermissionFlagsBits.ManageGuild)) {
+          interaction.reply({ content: `<:icons_Wrong75:1198037616956821515> | Você não possui permissão para utilizar este comando.`, ephemeral: true })
+        } else {
+          let embed_2 = new Discord.EmbedBuilder()
+            .setAuthor({ name: client.user.username })
+            .setThumbnail(client.user.displayAvatarURL())
+            .setDescription(`
+            ## Olá, Seja bem-vindo ao Sistema de Recrutamento da Polícia no MTA! 👋
+
+            Nesta primeira fase, você preencherá um formulário de recrutamento para que possamos conhecê-lo melhor. Para garantir um processo justo e eficiente, algumas regras foram estabelecidas para este formulário.
+            
+            ### Regras para o Formulário de Recrutamento:
+            
+            1. **Veracidade das Informações:**
+               Certifique-se de fornecer informações precisas e verdadeiras. Qualquer informação falsa resultará na desqualificação do processo.
+            
+            2. **Respeito às Normas Éticas:**
+               Mantenha um tom respeitoso e ético em todas as respostas. A conduta inadequada pode impactar negativamente sua avaliação.
+            
+            3. **Prazo de Envio:**
+               O formulário deve ser preenchido dentro do prazo estipulado. Envios fora do prazo não serão considerados.
+            
+            4. **Confidencialidade:**
+               Todas as informações fornecidas serão tratadas com a máxima confidencialidade. Elas serão utilizadas apenas para avaliação no processo de recrutamento.
+            
+            Agora, por favor, preencha o formulário abaixo com cuidado e atenção:
+            Agradecemos pelo seu interesse em fazer parte da Polícia no MTA! Após preencher o formulário, aguarde instruções sobre a próxima etapa do processo de recrutamento.
+            
+            Boa sorte! 🌟
+            `)
+            .setColor(config.embedcolor)
+            .setFooter({ text: 'Desenvolvido por @wyllyan.br'});
+
+          let buttonponto = new Discord.ActionRowBuilder()
+            .addComponents(
+              new Discord.ButtonBuilder()
+                .setCustomId('formulario_staff')
+                .setLabel('Realizar forumlario')
+                .setEmoji('1197986072039264266')
+                .setStyle(3)
             );
           interaction.reply({ content: `<:iconscorrect:1198037618361905345> | Mensagem enviada com sucesso.`, ephemeral: true })
           interaction.channel.send({ embeds: [embed_2], components: [buttonponto] })
