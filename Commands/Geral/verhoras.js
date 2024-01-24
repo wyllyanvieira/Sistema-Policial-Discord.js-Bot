@@ -19,16 +19,20 @@ module.exports = {
       }
 
       if (!row) {
-        return interaction.reply({ content: '<:icons_Wrong75:1198037616956821515> | Você ainda não patrulhou apos o ultimo reset..', ephemeral: true });
+        return interaction.reply({ content: '<:icons_Wrong75:1198037616956821515> | Você ainda não patrulhou após o último reset..', ephemeral: true });
       }
 
       const intervalosArray = JSON.parse(row.intervalos); // Converte a string JSON do banco de dados em um array
       const tempoTotal = intervalosArray.reduce((acc, intervalo) => acc + intervalo, 0);
       const tempoAbertoAtual = row.aberto ? (new Date() - new Date(row.aberto)) / 1000 : 0;
 
+      const tempoAbertoAtualFormatado = formatarTempo(tempoAbertoAtual);
       const tempoTotalFormatado = formatarTempo(tempoTotal + tempoAbertoAtual);
-
-      interaction.reply({ content: `<:iconscorrect:1198037618361905345> | Você patrulhou por: ${tempoTotalFormatado}`, ephemeral: true });
+      if (tempoAbertoAtual == 0) {
+        interaction.reply({ content: `<:iconscorrect:1198037618361905345> | Você patrulhou por: ${tempoTotalFormatado}.`, ephemeral: true });
+      } else {
+        interaction.reply({ content: `<:iconscorrect:1198037618361905345> | Você está com ponto aberto há: ${tempoAbertoAtualFormatado}`, ephemeral: true });
+      }
     });
   },
 };
