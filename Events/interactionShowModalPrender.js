@@ -20,13 +20,13 @@ module.exports = async (client, interaction) => {
       .setPlaceholder('Digite até 2500 Caracteres.')
       .setRequired(true)
 
-    let textinput_pena = new Discord.TextInputBuilder()
-      .setCustomId('textinput_pena')
-      .setLabel('Descreva quantos meses foram aplicados ')
+    let textinput_foto = new Discord.TextInputBuilder()
+      .setCustomId('textinput_foto')
+      .setLabel('Anexe imagem do detento: ')
       .setStyle(Discord.TextInputStyle.Short)
       .setMinLength(1) // Minimo de 1 digitos.
       .setMaxLength(100) // Max de 25 digitos, aumente se precisar.
-      .setPlaceholder('Digite apenas numeros')
+      .setPlaceholder('Anexe link do individu-o preso')
       .setRequired(true)
 
     let textinput_artigos = new Discord.TextInputBuilder()
@@ -54,7 +54,7 @@ module.exports = async (client, interaction) => {
     const umActionRow = new Discord.ActionRowBuilder().addComponents(textinput_id);
     const doisActionRow = new Discord.ActionRowBuilder().addComponents(textinput_descricao);
     const tresActionRow = new Discord.ActionRowBuilder().addComponents(textinput_oficiais);
-    const quatroActionRow = new Discord.ActionRowBuilder().addComponents(textinput_pena);
+    const quatroActionRow = new Discord.ActionRowBuilder().addComponents(textinput_foto);
     const cincoActionRow = new Discord.ActionRowBuilder().addComponents(textinput_artigos);
 
     modal_sugest.addComponents(umActionRow, doisActionRow, tresActionRow, quatroActionRow, cincoActionRow);
