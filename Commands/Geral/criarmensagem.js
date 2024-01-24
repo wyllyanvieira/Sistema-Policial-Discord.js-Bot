@@ -152,7 +152,7 @@ module.exports = {
             .addComponents(
               new Discord.ButtonBuilder()
                 .setCustomId('formulario_staff')
-                .setLabel('Realizar forumlario')
+                .setLabel('Realizar formulario')
                 .setEmoji('1197986072039264266')
                 .setStyle(3)
             );
