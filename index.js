@@ -3,15 +3,11 @@ const sqlite3 = require('sqlite3');
 const config = require("./config.json");
 const fs = require("fs");
 
-
-
 const client = new Discord.Client({
   intents: [
     Discord.GatewayIntentBits.Guilds
   ]
 });
-
-
 
 
 client.on("ready", () => {
