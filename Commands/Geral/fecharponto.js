@@ -32,10 +32,10 @@ async function fecharPonto2(idUsuario, interaction, client, canalLogId, db) {
         if (err) console.error(err);
       });
 
-      await interaction.reply({ content: `> 🙋 | Ponto fechado! Intervalo: ${formatarTempo(intervalo)}`, ephemeral: true });
+      await interaction.reply({ content: `> <:delete:1197986063554187284> | Ponto fechado de maneira forçada! Intervalo deis da abertura de  ${formatarTempo(intervalo)}`, ephemeral: true });
       const canalLog = client.channels.cache.get(canalLogId);
       if (canalLog) {
-        canalLog.send(`> 🙋 | Ponto do usuário ${interaction.user} fechado com ${formatarTempo(intervalo)}.`);
+        canalLog.send(`> <:delete:1197986063554187284> | Ponto do usuário ${interaction.user} fechado de maneira forçada por ${interaction.user} com intervalo deis de sua abertura de ${formatarTempo(intervalo)} .`);
       }
     } else {
       await interaction.reply({ content: '> <:icons_Wrong75:1198037616956821515> | Você não tem um ponto aberto.', ephemeral: true });
@@ -62,7 +62,7 @@ module.exports = {
       }
 
       if (rows.length === 0) {
-        await interaction.reply({ content: '> 🙅‍♂️ | Nenhum ponto aberto no momento.', ephemeral: true });
+        await interaction.reply({ content: '> <:guide:1197986076984365147> | Nenhum ponto aberto no momento.', ephemeral: true });
         return;
       }
 
