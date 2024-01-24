@@ -2,8 +2,7 @@ const Discord = require("discord.js");
 const sqlite3 = require('sqlite3');
 const config = require("./config.json");
 const fs = require("fs");
-const { QuickDB } = require('quick.db');
-global.db = new QuickDB();
+
 
 
 const client = new Discord.Client({

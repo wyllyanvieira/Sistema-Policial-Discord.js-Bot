@@ -122,7 +122,7 @@ module.exports = {
             .setAuthor({ name: client.user.username })
             .setThumbnail(client.user.displayAvatarURL())
             .setDescription(`
-            ## Olá, Seja bem-vindo ao Sistema de Recrutamento da Polícia no MTA! 👋
+            ## Olá, Seja bem-vindo ao Sistema de Recrutamento da ROTA! 👋
 
             Nesta primeira fase, você preencherá um formulário de recrutamento para que possamos conhecê-lo melhor. Para garantir um processo justo e eficiente, algumas regras foram estabelecidas para este formulário.
             
@@ -141,7 +141,7 @@ module.exports = {
                Todas as informações fornecidas serão tratadas com a máxima confidencialidade. Elas serão utilizadas apenas para avaliação no processo de recrutamento.
             
             Agora, por favor, preencha o formulário abaixo com cuidado e atenção:
-            Agradecemos pelo seu interesse em fazer parte da Polícia no MTA! Após preencher o formulário, aguarde instruções sobre a próxima etapa do processo de recrutamento.
+            Agradecemos pelo seu interesse em fazer parte da ROTA! Após preencher o formulário, aguarde instruções sobre a próxima etapa do processo de recrutamento.
             
             Boa sorte! 🌟
             `)
@@ -151,10 +151,10 @@ module.exports = {
           let buttonponto = new Discord.ActionRowBuilder()
             .addComponents(
               new Discord.ButtonBuilder()
-                .setCustomId('formulario_staff')
-                .setLabel('Realizar formulario')
-                .setEmoji('1197986072039264266')
-                .setStyle(3)
+                .setCustomId('formulario_recrutamento')
+                .setLabel('Realizar Prova')
+                .setEmoji('1197986061750632598')
+                .setStyle(2)
             );
           interaction.reply({ content: `<:iconscorrect:1198037618361905345> | Mensagem enviada com sucesso.`, ephemeral: true })
           interaction.channel.send({ embeds: [embed_2], components: [buttonponto] })

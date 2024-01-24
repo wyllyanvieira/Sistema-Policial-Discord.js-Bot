@@ -167,7 +167,6 @@ module.exports = async (client, interaction) => {
                 new Discord.ButtonBuilder()
                   .setCustomId("fechar_ticket")
                   .setLabel("Fechar Ticket")
-                  .setLabel("Fechar Ticket")
                   .setEmoji("1197986783808471171")
                   .setStyle(Discord.ButtonStyle.Danger)
   
