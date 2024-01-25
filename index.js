@@ -83,3 +83,11 @@ client.on('interactionCreate', async interaction => {
 client.on('interactionCreate', async interaction => {
   await interactionFormRecrutModal(client, interaction)
 });
+
+process.on('uncaughtException', (error, origin) => {
+  console.log(`🚫 Erro Detectado:]\n\n${error.stack}`);
+});
+
+process.on('uncaughtExceptionMonitor', (error, origin) => {
+  console.log(`🚫 Erro Detectado:\n\n${error.stack}`);
+});

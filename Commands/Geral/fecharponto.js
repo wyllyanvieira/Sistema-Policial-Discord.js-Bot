@@ -35,7 +35,7 @@ async function fecharPonto2(idUsuario, interaction, client, canalLogId, db) {
       await interaction.reply({ content: `> <:delete:1197986063554187284> | Ponto fechado de maneira forçada! Intervalo deis da abertura de  ${formatarTempo(intervalo)}`, ephemeral: true });
       const canalLog = client.channels.cache.get(canalLogId);
       if (canalLog) {
-        canalLog.send(`> <:delete:1197986063554187284> | Ponto do usuário ${interaction.user} fechado de maneira forçada por ${interaction.user} com intervalo deis de sua abertura de ${formatarTempo(intervalo)} .`);
+        canalLog.send(`> <:delete:1197986063554187284> | Ponto do usuário <@${idUsuario}> fechado de maneira forçada por ${interaction.user} com intervalo deis de sua abertura de ${formatarTempo(intervalo)} .`);
       }
     } else {
       await interaction.reply({ content: '> <:icons_Wrong75:1198037616956821515> | Você não tem um ponto aberto.', ephemeral: true });
@@ -69,15 +69,27 @@ module.exports = {
         return;
       }
 
-      // Criar array de opções para o dropdown
-      const options = rows.map((row) => {
-        const user = client.users.cache.get(row.usuario_id);
-        console.log(user)
-        return {
-          label: user ? (user.nickname || user.username) : 'Usuário não encontrado',
-          value: row.usuario_id,
-        };
-      });
+// Criar array de opções para o dropdown
+const options = await Promise.all(rows.map(async (row) => {
+  try {
+    const member = await interaction.guild.members.fetch(row.usuario_id);
+
+    return {
+      label: member.displayName || member.user.username,
+      value: row.usuario_id,
+    };
+  } catch (error) {
+    console.error(`Erro ao buscar membro ${row.usuario_id}: ${error.message}`);
+    return {
+      label: 'Usuário não encontrado',
+      value: row.usuario_id,
+    };
+  }
+}));
+
+console.log(options);
+
+
 
 
       const dropdown = new Discord.StringSelectMenuBuilder()
