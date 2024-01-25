@@ -37,7 +37,6 @@ module.exports = async (client, interaction) => {
           .setColor("#2f3136")
           .setAuthor({ name: `📃 Documentação enviada por — ${interaction.user}` })
           .setThumbnail(interaction.user.displayAvatarURL({ dinamyc: true }))
-          .setImage(ftextinput_foto)
           .setFields(
             {
               name: '<:id:1197986083590389861> Passaporte e nome do Cidadão',
@@ -62,6 +61,11 @@ module.exports = async (client, interaction) => {
             {
               name: '<:rules:1197986061750632598> Descrição da QRU',
               value: `\`\`\`${ftextinput_desc}\`\`\``,
+              inline: false
+            },
+            {
+              name: '<:rules:1197986061750632598>IMAGEM DO INDIVIDU-O',
+              value: `[CLIQUE PARA ABRIR A IMAGEM](${ftextinput_foto})`,
               inline: false
             },
           )

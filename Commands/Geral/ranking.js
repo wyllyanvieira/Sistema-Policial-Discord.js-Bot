@@ -19,14 +19,14 @@ module.exports = {
 
     function calcularRanking(rows) {
       const ranking = rows.map(row => {
-        const intervalosArray = JSON.parse(row.intervalos); // Converte a string JSON para um array
+        const intervalosArray = row.intervalos ? JSON.parse(row.intervalos) : [];
         const tempoTotal = intervalosArray.reduce((acc, intervalo) => acc + intervalo, 0);
         const tempoAbertoAtual = row.aberto ? (new Date() - new Date(row.aberto)) / 1000 : 0;
         return { idUsuario: row.usuario_id, tempoTotal: tempoTotal + tempoAbertoAtual };
       });
-
+    
       ranking.sort((a, b) => b.tempoTotal - a.tempoTotal);
-
+    
       return ranking;
     }
 

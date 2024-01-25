@@ -53,7 +53,10 @@ module.exports = {
     const canalLogId = config.batepontolog;
 
     const db = new sqlite3.Database(arquivoBanco);
-
+    
+    if (!interaction.member.permissions.has("MANAGE_MESSAGES")) {
+      return interaction.reply({ content: `<:icons_Wrong75:1198037616956821515> | Você não possui permissão para utilizar este comando.`, ephemeral: true });
+    }
     // Buscar usuários com ponto aberto
     db.all('SELECT * FROM pontos WHERE aberto IS NOT NULL', async (err, rows) => {
       if (err) {
@@ -67,10 +70,15 @@ module.exports = {
       }
 
       // Criar array de opções para o dropdown
-      const options = rows.map((row) => ({
-        label: client.users.cache.get(row.usuario_id).tag,
-        value: row.usuario_id,
-      }));
+      const options = rows.map((row) => {
+        const user = client.users.cache.get(row.usuario_id);
+        console.log(user)
+        return {
+          label: user ? (user.nickname || user.username) : 'Usuário não encontrado',
+          value: row.usuario_id,
+        };
+      });
+
 
       const dropdown = new Discord.StringSelectMenuBuilder()
         .setCustomId('fechar_ponto_dropdown')

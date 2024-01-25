@@ -77,20 +77,20 @@ module.exports = {
                     .setPlaceholder("Clique aqui!")
                     .addOptions(
                         {
-                            label: "Advertencia Verbal",
-                            description: "Aplique a advertencia verbal ao oficial.",
+                            label: "Advertência 1 - LEVE",
+                            description: "Aplique a Advertência 1 - LEVE ao oficial.",
                             emoji: "🚫",
                             value: "advertenciav"
                         },
                         {
-                            label: "Advertencia 1º",
-                            description: "Aplique a advertencia 1/3 ao oficial.",
+                            label: "Advertência 2 - Média",
+                            description: "Aplique a Advertência 2 - Média ao oficial.",
                             emoji: "🚫",
                             value: "advertencia1"
                         },
                         {
-                            label: "Advertencia 2º",
-                            description: "Aplique a advertencia 2/3 ao oficial.",
+                            label: "Advertência 3 - Grave",
+                            description: "Aplique a Advertência 3 - Grave ao oficial.",
                             emoji: "🚫",
                             value: "advertencia2"
                         },
