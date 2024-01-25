@@ -1,29 +1,29 @@
 {
     "token": "NjM5NTUzMDUwNDY1MjcxODA4.G7hmNe.r6cwSkl2aCtiJauiqliOZUJ_N-mKFxnAbGovXE",
     "embedcolor" : "2f3136",
-    "relatoriolog" : "1197012326184931438",
-    "batepontolog" : "1196585155800870972",
-    "siglaguarnição" : "[PMCB]",
+    "relatoriolog" : "1199864709868953608",
+    "batepontolog" : "1199864886826643546",
+    "siglaguarnição" : "[ROTA]",
 
     "RECRUTAMENTO":{
-        "cargo_verificador":"1196585155708584023",
-        "cargo_aprovado":"1199717906313924648",
-        "canal_formulario":"1199717526494527498"
+        "cargo_verificador":"",
+        "cargo_aprovado":"",
+        "canal_formulario":""
     },
 
     "TICKET":{
-        "cargo": "1196585155800870964",
-        "ticketlogs": "1197012326184931438",
-        "categoria": "1196585156266434606"
+        "cargo": "1196864178992980028",
+        "ticketlogs": "1199865249231278153",
+        "categoria": ""
     },
 
 
     "ADVERTENCIAS": {
-        "advertanciacanal":"1196585156555833421",
-        "exonerascanal": "1196585156555833422",
-        "cargoadv_verbal":"1196585155691814990",
-        "cargoadv_1":"1196585155691814989",
-        "cargoadv_2":"1196585155691814988"
+        "advertanciacanal":"1196543632690401281",
+        "exonerascanal": "1196543632493260808",
+        "cargoadv_verbal":"1196543631239172117",
+        "cargoadv_1":"1196543631239172118",
+        "cargoadv_2":"1196543631239172119"
     }
 
 }

@@ -53,7 +53,12 @@ module.exports = async (client, interaction) => {
                   .setCustomId("fechar_ticket")
                   .setLabel("Fechar Ticket")
                   .setEmoji("1197986783808471171")
-                  .setStyle(Discord.ButtonStyle.Danger)
+                  .setStyle(Discord.ButtonStyle.Danger),
+                //  new Discord.ButtonBuilder()
+                //  .setCustomId("addmemberchannel")
+                //  .setLabel("Adcionar Usuario")
+                //  .setEmoji("1197986072039264266")
+                //  .setStyle(Discord.ButtonStyle.Danger)
               );
   
               ch.send({ embeds: [embed], components: [botao] }).then(m => {
@@ -110,7 +115,12 @@ module.exports = async (client, interaction) => {
                   .setCustomId("fechar_ticket")
                   .setLabel("Fechar Ticket")
                   .setEmoji("1197986783808471171")
-                  .setStyle(Discord.ButtonStyle.Danger)
+                  .setStyle(Discord.ButtonStyle.Danger),
+                 // new Discord.ButtonBuilder()
+                 // .setCustomId("addmemberchannel")
+                 // .setLabel("Adcionar Usuario")
+                 // .setEmoji("1197986072039264266")
+                 // .setStyle(Discord.ButtonStyle.Danger)
               );
   
               ch.send({ embeds: [embed], components: [botao] }).then(m => {
@@ -168,7 +178,12 @@ module.exports = async (client, interaction) => {
                   .setCustomId("fechar_ticket")
                   .setLabel("Fechar Ticket")
                   .setEmoji("1197986783808471171")
-                  .setStyle(Discord.ButtonStyle.Danger)
+                  .setStyle(Discord.ButtonStyle.Danger),
+                //  new Discord.ButtonBuilder()
+                //  .setCustomId("addmemberchannel")
+                //  .setLabel("Adcionar Usuario")
+                //  .setEmoji("1197986072039264266")
+                //  .setStyle(Discord.ButtonStyle.Danger)
   
               );
   
