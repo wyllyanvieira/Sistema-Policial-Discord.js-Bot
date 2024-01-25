@@ -40,7 +40,7 @@ module.exports = {
       if (!interaction.member.permissions.has("MANAGE_MESSAGES")) {
         return interaction.reply({ content: `<:icons_Wrong75:1198037616956821515> | Você não possui permissão para utilizar este comando.`, ephemeral: true });
       }
-      interaction.reply({ content: `<:iconscorrect:1198037618361905345> | Ranking apresentado com sucesso.`, ephemeral: true });
+      interaction.reply({ content: `<:refresh:1197986033594269778> | Ranking em processamento embreve será apresentado.`, ephemeral: true });
       const ranking = calcularRanking(rows);
       var d = new Date();
       let resposta = `# Ranking de Tempo de Ponto: \n- Solicitado por: ${interaction.user} \n- Data: ${d} \n\n`;

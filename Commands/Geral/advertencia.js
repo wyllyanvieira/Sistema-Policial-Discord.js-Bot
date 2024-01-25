@@ -44,7 +44,7 @@ module.exports = {
             let embed_advv = new Discord.EmbedBuilder()
                 .setColor(config.embedcolor)
                 .setAuthor({ name: interaction.user.username, iconURL: interaction.user.displayAvatarURL({ dynmiac: true }) })
-                .setDescription(`MTD Policia informa o Oficial  ${target}, recebeu uma : **Advertencia Verbal**`)
+                .setDescription(`MTD Policia informa o Oficial  ${target}, recebeu uma : **Advertência 1 - LEVE**`)
                 .addFields(
                     { name: 'Oficial Advertido:', value: `${target}` },
                     { name: 'Motivo da Advertencia', value: `${reason}` },
@@ -54,7 +54,7 @@ module.exports = {
             let embed_adv1 = new Discord.EmbedBuilder()
                 .setColor(config.embedcolor)
                 .setAuthor({ name: interaction.user.username, iconURL: interaction.user.displayAvatarURL({ dynmiac: true }) })
-                .setDescription(`MTD Policia informa o Oficial  ${target}, recebeu uma :  **Advertencia 1/3**`)
+                .setDescription(`MTD Policia informa o Oficial  ${target}, recebeu uma :  **Advertência 2 - Média**`)
                 .addFields(
                     { name: 'Oficial Advertido:', value: `${target}` },
                     { name: 'Motivo da Advertencia', value: `${reason}` },
@@ -64,7 +64,7 @@ module.exports = {
             let embed_adv2 = new Discord.EmbedBuilder()
                 .setColor(config.embedcolor)
                 .setAuthor({ name: interaction.user.username, iconURL: interaction.user.displayAvatarURL({ dynmiac: true }) })
-                .setDescription(`MTD Policia informa o Oficial  ${target}, recebeu uma :  **Advertencia 2/3**`)
+                .setDescription(`MTD Policia informa o Oficial  ${target}, recebeu uma :  **Advertência 3 - Grave**`)
                 .addFields(
                     { name: 'Oficial Advertido:', value: `${target}` },
                     { name: 'Motivo da Advertencia', value: `${reason}` },
