@@ -54,19 +54,19 @@ module.exports = {
             if (err) {
               console.error(err);
               return interaction.editReply({
-                content: "<:icons_Wrong75:1198037616956821515> Ocorreu um erro ao limpar o banco de dados.",
+                content: "<:icons_Wrong75:1198037616956821515> | Ocorreu um erro ao limpar o banco de dados.",
                 components: [],
               });
             }
 
             interaction.editReply({
-              content: "<:iconscorrect:1198037618361905345> Banco de dados limpo com sucesso!",
+              content: "<:iconscorrect:1198037618361905345> | Banco de dados limpo com sucesso!",
               components: [],
             });
           });
         } else if (i.customId === "cancel_clear") {
           interaction.editReply({
-            content: "<:icons_Wrong75:1198037616956821515> Limpeza do banco de dados cancelada.",
+            content: "<:icons_Wrong75:1198037616956821515> | Limpeza do banco de dados cancelada.",
             components: [],
           });
         }
@@ -78,7 +78,7 @@ module.exports = {
     collector.on("end", (collected) => {
       if (collected.size === 0) {
         interaction.followUp({
-          content: "<:icons_Wrong75:1198037616956821515> Tempo expirado. Ação cancelada.",
+          content: "<:icons_Wrong75:1198037616956821515> | Tempo expirado. Ação cancelada.",
           ephemeral: true,
         });
       }
