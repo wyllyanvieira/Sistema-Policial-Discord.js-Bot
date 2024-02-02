@@ -50,9 +50,10 @@ module.exports = async (client, interaction) => {
         if (dataAusencia < dataAtual) {
             return interaction.reply({ content: `> <:icons_Wrong75:1198037616956821515> | ${interaction.user} A data de ausência não pode ser anterior à data atual. Por favor, insira uma data válida.`, ephemeral: true });
         }
-        if (dataAusencia == dataAtual) {
-            return interaction.reply({ content: `> <:icons_Wrong75:1198037616956821515> | ${interaction.user} A data de ausência não pode a data de hoje. Por favor, insira uma data válida acima de hojê.`, ephemeral: true });
+        if (dataAusencia === dataAtual) {
+            return interaction.reply({ content: `> <:icons_Wrong75:1198037616956821515> | ${interaction.user} A data de ausência não pode ser igual à data atual. Por favor, insira uma data válida acima de hoje.`, ephemeral: true });
         }
+        
         // Continue com a inserção dos dados no banco de dados SQLite
         db.run('INSERT INTO ausencia (usuario_id, tempo_off) VALUES (?, ?)', [interaction.user.id, tempoOff], (err) => {
             if (err) {
@@ -66,10 +67,26 @@ module.exports = async (client, interaction) => {
               canalLog.send({ content: `<:info:1197986066779607121> | O Usuario ${interaction.user} teve seu registro de ausencia adicionado até a data de **${tempoOff}**.`});
             }
         });
+
+        // Verifica se a data de retorno é atingida e remove o usuário da tabela de ausência
+        const tempoOffMilliseconds = dataAusencia.getTime();
+        const agoraMilliseconds = Date.now();
+        const diffMilliseconds = tempoOffMilliseconds - agoraMilliseconds;
+
+        setTimeout(() => {
+            db.run('DELETE FROM ausencia WHERE usuario_id = ?', [interaction.user.id], (err) => {
+                if (err) {
+                    console.error(err);
+                    return;
+                }
+                console.log(`Usuário ${interaction.user.id} removido da lista de ausência.`);
+                const canalLog = client.channels.cache.get(canalLogId);
+                if (canalLog) {
+                  interaction.user.send({ content: `<:info:1197986066779607121> | Olá ${interaction.user} seu periodo de ausencia foi encerrado, portanto deve retornar a suas atividades na corporação.`})  
+                  canalLog.send({ content: `<:info:1197986066779607121> | O Usuario ${interaction.user} terminou seu periodo de ausencia solicitado, seus acessoas ao sistema retornaram.`});
+                }
+            });
+        }, diffMilliseconds);
     }
     // Função para verificar se o usuário está ausente
-
-
 }
-
-
