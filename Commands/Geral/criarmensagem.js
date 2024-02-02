@@ -25,8 +25,8 @@ module.exports = {
 
     },
     {
-      name: 'recrutamento',
-      description: '[📚 Informação] crie a mensagem a respeito do formulario de recrutamento',
+      name: 'ausencia',
+      description: '[📚 Informação] crie a mensagem a respeito do formulario de ausencia',
       type: Discord.ApplicationCommandOptionType.Subcommand,
 
     },
@@ -114,7 +114,7 @@ module.exports = {
         }
         break;
       }
-      case 'recrutamento': {
+      case 'ausencia': {
         if (!interaction.member.permissions.has(Discord.PermissionFlagsBits.ManageGuild)) {
           interaction.reply({ content: `<:icons_Wrong75:1198037616956821515> | Você não possui permissão para utilizar este comando.`, ephemeral: true })
         } else {
@@ -122,28 +122,25 @@ module.exports = {
             .setAuthor({ name: client.user.username })
             .setThumbnail(client.user.displayAvatarURL())
             .setDescription(`
-            ## Olá, Seja bem-vindo ao Sistema de Recrutamento da ROTA! 👋
+            ## Olá, Bem-vindo ao Sistema de Ausência! 👋
+            Nesta etapa, por favor, informe a data do seu afastamento. Após preenchimento, sua presença no bate-ponto será desabilitada temporariamente.
+            
+            **Regras para Solicitação de Ausência:**
+            Precisão da Data:
+            Forneça a data precisa do início e término do seu afastamento. Erros podem acarretar em problemas na gestão do seu tempo de ausência.
+            
+            **Antecedência:**
+            Solicite sua ausência com antecedência mínima estipulada pela empresa. Pedidos tardios podem não ser considerados.
+            
+            **Atenção aos Detalhes:**
+            Certifique-se de preencher todos os campos corretamente. Informações incompletas podem atrasar o processamento do seu pedido.
+            
+            **Confirmação de Envio:**
+            Após preencher o formulário, aguarde a confirmação do sistema sobre o recebimento do seu pedido de ausência.
+            
+            Por favor, preencha a data do seu afastamento abaixo:
+            Agradecemos sua colaboração para manter o registro preciso da sua presença.
 
-            Nesta primeira fase, você preencherá um formulário de recrutamento para que possamos conhecê-lo melhor. Para garantir um processo justo e eficiente, algumas regras foram estabelecidas para este formulário.
-            
-            ### Regras para o Formulário de Recrutamento:
-            
-            1. **Veracidade das Informações:**
-               Certifique-se de fornecer informações precisas e verdadeiras. Qualquer informação falsa resultará na desqualificação do processo.
-            
-            2. **Respeito às Normas Éticas:**
-               Mantenha um tom respeitoso e ético em todas as respostas. A conduta inadequada pode impactar negativamente sua avaliação.
-            
-            3. **Prazo de Envio:**
-               O formulário deve ser preenchido dentro do prazo estipulado. Envios fora do prazo não serão considerados.
-            
-            4. **Confidencialidade:**
-               Todas as informações fornecidas serão tratadas com a máxima confidencialidade. Elas serão utilizadas apenas para avaliação no processo de recrutamento.
-            
-            Agora, por favor, preencha o formulário abaixo com cuidado e atenção:
-            Agradecemos pelo seu interesse em fazer parte da ROTA! Após preencher o formulário, aguarde instruções sobre a próxima etapa do processo de recrutamento.
-            
-            Boa sorte! 🌟
             `)
             .setColor(config.embedcolor)
             .setFooter({ text: 'Desenvolvido por @wyllyan.br'});
@@ -151,8 +148,8 @@ module.exports = {
           let buttonponto = new Discord.ActionRowBuilder()
             .addComponents(
               new Discord.ButtonBuilder()
-                .setCustomId('formulario_recrutamento')
-                .setLabel('Realizar Prova')
+                .setCustomId('formausencia')
+                .setLabel('Solicitar Ausencia')
                 .setEmoji('1197986061750632598')
                 .setStyle(2)
             );
@@ -181,7 +178,8 @@ module.exports = {
             > **🚨 Denúncias**
             Abra um ticket para reportar qualquer incidente ou realizar uma denúncia referente a um oficial. Sua segurança é nossa prioridade.
 
-            > **🦅 Outros**Abra um ticket para qualquer outro motivo diverso que não se enquadre nas categorias acima.
+            > **🦅 Outros**
+            Abra um ticket para qualquer outro motivo diverso que não se enquadre nas categorias acima.
 
             Estamos aqui para resolver suas dúvidas e problemas.
             Para abrir um ticket, reaja a esta mensagem com o emoji correspondente à sua escolha. Nossa equipe estará pronta para atender sua solicitação e fornecer a assistência necessária.

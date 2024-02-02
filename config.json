@@ -1,29 +1,30 @@
 {
     "token": "NjM5NTUzMDUwNDY1MjcxODA4.G7hmNe.r6cwSkl2aCtiJauiqliOZUJ_N-mKFxnAbGovXE",
     "embedcolor" : "2f3136",
-    "relatoriolog" : "1199864709868953608",
-    "batepontolog" : "1199864886826643546",
-    "siglaguarnição" : "[ROTA]",
+    "relatoriolog" : "1201893565941432383",
+    "batepontolog" : "1201893559394127932",
+    "logausencia": "1202385085626589184",
+    "siglaguarnição" : "[COMANF]",
 
-    "RECRUTAMENTO":{
-        "cargo_verificador":"",
-        "cargo_aprovado":"",
-        "canal_formulario":""
+    "AUSENCIA":{
+        "cargo_verificador":"1201893584627056670",
+        "cargo_ausencia":"1202384144160788490",
+        "canal_formulario":"1202385085626589184"
     },
 
     "TICKET":{
-        "cargo": "1196543631222386760",
-        "ticketlogs": "1199865249231278153",
+        "cargo": "1201952661071740938",
+        "ticketlogs": "1201893568684503050",
         "categoria": ""
     },
 
 
     "ADVERTENCIAS": {
-        "advertanciacanal":"1196543632690401281",
-        "exonerascanal": "1196543632493260808",
-        "cargoadv_verbal":"1196543631239172117",
-        "cargoadv_1":"1196543631239172118",
-        "cargoadv_2":"1196543631239172119"
+        "advertanciacanal":"1201893602532528148",
+        "exonerascanal": "1201893608794632264",
+        "cargoadv_verbal":"1201893605472473130",
+        "cargoadv_1":"1201893607364382771",
+        "cargoadv_2":"1201893609595736074"
     },
     "HIERARQUIA": [
         1196543631314669577,

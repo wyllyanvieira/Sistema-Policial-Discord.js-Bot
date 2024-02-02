@@ -52,8 +52,7 @@ const interactionFechatTicket = require("./Events/interactionFechatTicket");
 const interactionTicketCreate = require("./Events/interactionTicketCreate");
 const interactionPostModalPrender = require("./Events/interactionPostModalPrender");
 const interactionBatePonto = require("./Events/interactionBatePonto");
-const interactionFormRecrut = require("./Events/interactionFormRecrut");
-const interactionFormRecrutModal = require("./Events/interactionFormRecrutModal");
+const interactionFormAusenciaModal = require("./Events/interactionFormAusenciaModal");
 
 
 client.on("interactionCreate", async (interaction) => {
@@ -77,11 +76,7 @@ client.on('interactionCreate', async interaction => {
 });
 
 client.on('interactionCreate', async interaction => {
-  await interactionFormRecrut(client, interaction)
-});
-
-client.on('interactionCreate', async interaction => {
-  await interactionFormRecrutModal(client, interaction)
+  await interactionFormAusenciaModal(client, interaction)
 });
 
 process.on('uncaughtException', (error, origin) => {
