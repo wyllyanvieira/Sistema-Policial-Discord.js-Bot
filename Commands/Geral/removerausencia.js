@@ -71,8 +71,11 @@ module.exports = {
             console.error(err);
             return interaction.reply({ content: `> <:icons_Wrong75:1198037616956821515> | Houve um erro ao remover o usuário da lista de ausência.`, ephemeral: true });
           }
-
+          const canalLog = client.channels.cache.get(canalLogId);
           interaction.reply({ content: `> <:iconscorrect:1198037618361905345>| Usuário removido com sucesso da lista de ausência.`, ephemeral: true });
+          if (canalLog) {
+            canalLog.send({ content: `<:info:1197986066779607121> | O Usuario <@${idUsuario}> teve seu registro de ausencia removido por ${interaction.user}.`});
+          }
         });
       }
     });

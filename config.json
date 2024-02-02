@@ -3,13 +3,12 @@
     "embedcolor" : "2f3136",
     "relatoriolog" : "1201893565941432383",
     "batepontolog" : "1201893559394127932",
-    "logausencia": "1202385085626589184",
+    "ausenciaLog": "1202385085626589184",
     "siglaguarnição" : "[COMANF]",
 
     "AUSENCIA":{
         "cargo_verificador":"1201893584627056670",
-        "cargo_ausencia":"1202384144160788490",
-        "canal_formulario":"1202385085626589184"
+        "cargo_ausencia":"1202384144160788490"
     },
 
     "TICKET":{

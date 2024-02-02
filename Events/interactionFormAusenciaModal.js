@@ -4,6 +4,7 @@ const config = require("../config.json");
 
 const arquivoBanco = 'ausencia.db';
 const db = new sqlite3.Database(arquivoBanco);
+const canalLogId = config.ausenciaLog;
 
 module.exports = async (client, interaction) => {
 
@@ -60,6 +61,10 @@ module.exports = async (client, interaction) => {
             }
     
             interaction.reply({ content: `> <:iconscorrect:1198037618361905345> | ${interaction.user} Sua ausência foi registrada até ${tempoOff}, dentro desse prazo fica impedido de bater-ponto.`, ephemeral: true });
+            const canalLog = client.channels.cache.get(canalLogId);
+            if (canalLog) {
+              canalLog.send({ content: `<:info:1197986066779607121> | O Usuario ${interaction.user} teve seu registro de ausencia adicionado até a data de **${tempoOff}**.`});
+            }
         });
     }
     // Função para verificar se o usuário está ausente
