@@ -18,9 +18,15 @@ module.exports = async (client, interaction) => {
             .setLabel('Até quando você ficará ausente? (DD/MM/AAAA)')
             .setPlaceholder('Digite a data de retorno')
             .setStyle(Discord.TextInputStyle.Short)
+        const motivo = new Discord.TextInputBuilder()
+            .setCustomId('motivo')
+            .setLabel('Qual motivo da Ausencia')
+            .setPlaceholder('Digite o motivo por qual ficará ausente')
+            .setStyle(Discord.TextInputStyle.Paragraph)
 
         modal.addComponents(
-            new Discord.ActionRowBuilder().addComponents(tempoOff)
+            new Discord.ActionRowBuilder().addComponents(tempoOff),
+            new Discord.ActionRowBuilder().addComponents(motivo)
         );
 
         return interaction.showModal(modal);
@@ -28,6 +34,7 @@ module.exports = async (client, interaction) => {
 
     if (interaction.isModalSubmit() && interaction.customId === "modal_ausencia") {
         const tempoOff = interaction.fields.getTextInputValue("tempo_off");
+        const motivo = interaction.fields.getTextInputValue("motivo");
     
         // Converta a entrada da data para um objeto Date
         const dataInput = tempoOff.split('/');
@@ -64,7 +71,7 @@ module.exports = async (client, interaction) => {
             interaction.reply({ content: `> <:iconscorrect:1198037618361905345> | ${interaction.user} Sua ausência foi registrada até ${tempoOff}, dentro desse prazo fica impedido de bater-ponto.`, ephemeral: true });
             const canalLog = client.channels.cache.get(canalLogId);
             if (canalLog) {
-              canalLog.send({ content: `<:info:1197986066779607121> | O Usuario ${interaction.user} teve seu registro de ausencia adicionado até a data de **${tempoOff}**.`});
+              canalLog.send({ content: `<:info:1197986066779607121> | O Oficial ${interaction.user} teve seu registro de ausencia adicionado até a data de **${tempoOff}** pelo motivo de: ${motivo}.`});
             }
         });
 
