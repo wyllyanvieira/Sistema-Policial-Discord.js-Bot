@@ -31,6 +31,23 @@ apos execultar a Instalação procure o [arquivo (config.json)](https://github.c
         "cargo": "",
         "ticketlogs": "",
         "categoria": ""
+ {
+    "token": "TOKEN DO BOT",
+    "embedcolor" : "2f3136",
+    "relatoriolog" : "ID",
+    "batepontolog" : "ID",
+    "ausenciaLog": "ID",
+    "siglaguarnição" : "SIGLA EX> PMESP, PMERJ ",
+
+    "AUSENCIA":{
+        "cargo_verificador":"ID",
+        "cargo_ausencia":"ID"
+    },
+
+    "TICKET":{
+        "cargo": "ID",
+        "ticketlogs": "ID",
+        "categoria": "ID"
     },
 
 
@@ -82,7 +99,13 @@ Perfeito se tudo estiver correto o bot inicalizará sozinho.
 - Sistema de Bate-ponto completo com (ranking)
 - Sistema de Verificação de tempo de ponto aberto
 - Sistema de envio de mensagens base por comando
+<<<<<<< HEAD
 - Sistema de Ausencia com total controle aos emmbros 
+=======
+- Sistema de Controle de Ausencias dos membros
+
+
+>>>>>>> c678a80dc0751e13e29954062a9c792109baf866
 
 
 ## Referência
