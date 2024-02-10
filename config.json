@@ -1,50 +1,50 @@
 {
-    "token": "NjM5NTUzMDUwNDY1MjcxODA4.G7hmNe.r6cwSkl2aCtiJauiqliOZUJ_N-mKFxnAbGovXE",
+    "token": "",
     "embedcolor" : "2f3136",
-    "relatoriolog" : "1201893565941432383",
-    "batepontolog" : "1201893559394127932",
-    "ausenciaLog": "1202385085626589184",
-    "siglaguarnição" : "[COMANF]",
+    "relatoriolog" : "",
+    "batepontolog" : "",
+    "ausenciaLog": "",
+    "siglaguarnição" : "",
 
     "AUSENCIA":{
-        "cargo_verificador":"1201893584627056670",
-        "cargo_ausencia":"1202384144160788490"
+        "cargo_verificador":"",
+        "cargo_ausencia":""
     },
 
     "TICKET":{
-        "cargo": "1201952661071740938",
-        "ticketlogs": "1201893568684503050",
+        "cargo": "",
+        "ticketlogs": "",
         "categoria": ""
     },
 
 
     "ADVERTENCIAS": {
-        "advertanciacanal":"1201893602532528148",
-        "exonerascanal": "1201893608794632264",
-        "cargoadv_verbal":"1201893605472473130",
-        "cargoadv_1":"1201893607364382771",
-        "cargoadv_2":"1201893609595736074"
+        "advertanciacanal":"",
+        "exonerascanal": "",
+        "cargoadv_verbal":"",
+        "cargoadv_1":"",
+        "cargoadv_2":""
     },
     "HIERARQUIA": [
-        1196543631314669577,
-        1196543631314669576,
-        1196543631314669575,
-        1196543631314669574,
-        1196543631314669573,
-        1196543631314669572,
-        1196543631314669570,
-        1196543631314669568,
-        1196543631293689936,
-        1196543631293689934,
-        1196543631293689933,
-        1196543631293689932,
-        1196543631293689929,
-        1196543631293689928,
-        1196543631293689927,
-        1196543631255928924,
-        1196543631255928921,
-        1196543631255928920,
-        1196543631255928919
+       "CARGO ID",
+       "CARGO ID",
+       "CARGO ID",
+       "CARGO ID",
+       "CARGO ID",
+       "CARGO ID",
+       "CARGO ID",
+       "CARGO ID",
+       "CARGO ID",
+       "CARGO ID",
+       "CARGO ID",
+       "CARGO ID",
+       "CARGO ID",
+       "CARGO ID",
+       "CARGO ID",
+       "CARGO ID",
+       "CARGO ID",
+       "CARGO ID",
+       "CARGO ID"
 
 
     ]
